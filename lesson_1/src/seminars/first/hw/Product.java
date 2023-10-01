@@ -1,8 +1,18 @@
 package seminars.first.hw;
 
+import org.assertj.core.api.StringAssert;
+
 public class Product {
     private int cost; // Стоимость продукта
     private String title; // Название
+
+    public Product(){
+
+    }
+    public Product(int cost, String title){
+        this.cost = cost;
+        this.title = title;
+    }
 
     public int getCost() {
         return cost;

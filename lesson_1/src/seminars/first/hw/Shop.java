@@ -14,17 +14,30 @@ public class Shop {
         this.products = products;
     }
 
-    /**
-     * @return отсортированный по возрастанию и цене список продуктов
-     */
     public List<Product> getSortedListProducts() {
-        return null;
+        for (int i = 0; i < products.size(); i++) {
+            for (int j = i + 1; j < products.size(); j++) {
+                if (products.get(i).getCost() > products.get(j).getCost()){
+                    Product tmpProduct = products.get(j);
+                    products.set(j, products.get(i));
+                    products.set(i, tmpProduct);
+                }
+            }
+
+        }
+        return products;
     }
 
     /**
      * @return самый дорогой продукт
      */
     public Product getMostExpensiveProduct() {
-        return null;
+        Product productMaxCost = new Product();
+        for (Product p:products) {
+            if(p.getCost()>productMaxCost.getCost()){
+                productMaxCost = p;
+            }
+        }
+        return productMaxCost;
     }
 }
